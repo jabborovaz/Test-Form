@@ -1,0 +1,9 @@
+$primary-color: #000;
+
+.container {
+  background-color: $primary-color;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
