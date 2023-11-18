@@ -1,8 +1,15 @@
 import React from "react";
 import styles from "../App.module.scss";
+import InputBox from "../components/InputBox";
 
-function Main() {
-  return <div className={styles.container}>Main</div>;
-}
+const Main: React.FC = () => {
+  return (
+    <div className={styles.container}>
+      <section className={styles.formBlock}>
+        <InputBox />
+      </section>
+    </div>
+  );
+};
 
 export default Main;

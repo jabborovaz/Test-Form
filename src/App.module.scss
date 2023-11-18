@@ -1,4 +1,7 @@
 $primary-color: #000;
+$sectionColor: #171717;
+$secondary-color: #042f2e;
+$blockRadius: 16px;
 
 .container {
   background-color: $primary-color;
@@ -6,4 +9,56 @@ $primary-color: #000;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.formBlock {
+  background-color: $sectionColor;
+  width: 28%;
+  max-width: 470px;
+  margin: 5% auto;
+  padding: 15px 25px;
+  border-radius: $blockRadius;
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+
+  .input {
+    width: 93%;
+    border: none;
+    border-radius: 1rem;
+    background: $secondary-color;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #f5f5f5;
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus,
+    &:valid {
+      outline: none;
+      background-color: $sectionColor;
+      border: 1.5px solid #1a73e8;
+    }
+  }
+
+  .userLabel {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    color: #e8e8e8;
+    opacity: 0.7;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .input:focus ~ label,
+  .input:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: $sectionColor;
+    padding: 0 0.2em;
+    color: #2196f3;
+    opacity: 1;
+  }
 }
