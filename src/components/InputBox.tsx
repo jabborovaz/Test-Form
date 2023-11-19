@@ -8,10 +8,13 @@ interface InputBoxProps {
   labelText: string;
   value: string;
   handleChange: any;
+  handleBlur: any;
   type: string;
   name: string;
   checked: any;
   onChecked: any;
+  inputStyle: string;
+  labelStyle: string;
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -19,14 +22,15 @@ const InputBox: React.FC<InputBoxProps> = ({
   labelText,
   value,
   handleChange,
+  handleBlur,
   type,
   name,
   checked,
   onChecked,
+  inputStyle,
+  labelStyle,
 }) => {
   const Component = isTextarea ? TextareaAutosize : "input";
-
-  console.log(checked);
   useEffect(() => {
     let checkedState: any = document.querySelector(".eye");
 
@@ -70,16 +74,16 @@ const InputBox: React.FC<InputBoxProps> = ({
         <></>
       )}
       <Component
-        name={name}
+        id={name}
         value={value}
         onChange={handleChange}
-        required
+        onBlur={handleBlur}
         type={type}
         autoComplete="off"
-        className={styles.input}
+        className={inputStyle}
         {...(isTextarea ? { minRows: 4, style: { resize: "none" } } : {})}
       />
-      <label className={styles.userLabel}>{labelText}</label>
+      <label className={labelStyle}>{labelText}</label>
     </div>
   );
 };
