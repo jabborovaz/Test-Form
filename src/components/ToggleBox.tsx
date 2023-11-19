@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./toggleSwitch.css";
 import styles from "../App.module.scss";
 
 function ToggleBox() {
-  const [value, setValue] = useState(false);
+  const [value, setValue] = useState<boolean>(false);
 
   return (
     <div className={styles.toggleFlex}>

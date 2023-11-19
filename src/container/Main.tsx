@@ -5,33 +5,33 @@ import ToggleBox from "../components/ToggleBox";
 import { useFormik } from "formik";
 import { submitFormSchema } from "../validation/Schemas";
 
+interface FormValues {
+  email: string;
+  description: string;
+  password: string;
+  confirmPass: string;
+}
+
 const Main: React.FC = () => {
   const [value, setValue] = useState<string>("");
   const [valueOnText, setValueOnText] = useState<string>("");
   const [value2, setValue2] = useState<string>("");
 
-  const {
-    values,
-    errors,
-    touched,
-    handleBlur,
-    handleSubmit,
-    handleChange,
-    setFieldTouched,
-  } = useFormik({
-    initialValues: {
-      email: "",
-      description: "",
-      password: "",
-      confirmPass: "",
-    },
-    validationSchema: submitFormSchema,
-    onSubmit: () => {},
-  });
+  const { values, errors, touched, handleBlur, handleSubmit, handleChange } =
+    useFormik<FormValues>({
+      initialValues: {
+        email: "",
+        description: "",
+        password: "",
+        confirmPass: "",
+      },
+      validationSchema: submitFormSchema,
+      onSubmit: () => {},
+    });
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility = (e: any) => {
+  const togglePasswordVisibility = (e: React.ChangeEvent<HTMLInputElement>) => {
     setShowPassword(!showPassword);
   };
 
@@ -49,16 +49,16 @@ const Main: React.FC = () => {
     setValue2(e.target.value);
   }
 
-  const handleFieldBlur = (field: string) => {
-    setFieldTouched(field, true, false);
-  };
+  //   const handleFieldBlur = (field: string) => {
+  //     setFieldTouched(field, true, false);
+  //   };
 
   return (
     <div className={styles.container}>
       <section className={styles.formBlock}>
         <InputBox
-          checked={null}
-          onChecked={null}
+          checked={false}
+          onChecked={() => {}}
           isTextarea={false}
           name="debounce"
           labelText="debounce тест"
@@ -70,8 +70,8 @@ const Main: React.FC = () => {
           type="text"
         />
         <InputBox
-          checked={null}
-          onChecked={null}
+          checked={false}
+          onChecked={() => {}}
           isTextarea={false}
           name="trottle"
           labelText="trottling тест"
@@ -88,8 +88,8 @@ const Main: React.FC = () => {
 
       <form onSubmit={handleSubmit} className={styles.formBlock}>
         <InputBox
-          checked={null}
-          onChecked={null}
+          checked={false}
+          onChecked={() => {}}
           isTextarea={false}
           labelText={
             errors?.email && touched?.email ? errors?.email : "Эл. почта"
@@ -110,8 +110,8 @@ const Main: React.FC = () => {
         />
 
         <InputBox
-          checked={null}
-          onChecked={null}
+          checked={false}
+          onChecked={() => {}}
           isTextarea={true}
           labelText={
             errors?.description && touched?.description
@@ -160,8 +160,8 @@ const Main: React.FC = () => {
         />
 
         <InputBox
-          checked={null}
-          onChecked={null}
+          checked={false}
+          onChecked={() => {}}
           isTextarea={false}
           labelText={
             errors.confirmPass && touched?.confirmPass

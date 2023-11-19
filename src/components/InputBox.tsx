@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, ChangeEvent } from "react";
 import styles from "../App.module.scss";
 import TextareaAutosize from "react-textarea-autosize";
 import "./eyeToggle.css";
@@ -7,12 +7,18 @@ interface InputBoxProps {
   isTextarea: boolean;
   labelText: string;
   value: string;
-  handleChange: any;
-  handleBlur: any;
+  handleChange: (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | ChangeEvent<HTMLTextAreaElement>
+  ) => void;
+  handleBlur: (
+    event: React.FocusEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => void;
   type: string;
   name: string;
-  checked: any;
-  onChecked: any;
+  checked: boolean;
+  onChecked: (e: any) => void;
   inputStyle: string;
   labelStyle: string;
 }
