@@ -16,8 +16,8 @@ $blockRadius: 16px;
   background-color: $sectionColor;
   width: 27%;
   max-width: 470px;
-  margin: 5% auto;
-  padding: 25px 20px;
+  margin: 2% auto;
+  padding: 30px 20px;
   border-radius: $blockRadius;
   display: flex;
   flex-direction: column;
@@ -31,8 +31,8 @@ $blockRadius: 16px;
 
   .input {
     width: 100%;
-    border: 1px solid transparent;
-    border-radius: 1rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
     background: $secondary-color;
     padding: 1rem;
     font-size: 1rem;
@@ -41,14 +41,14 @@ $blockRadius: 16px;
 
     &:hover {
       outline: none;
-      border: 1px solid #1a73e8;
+      border: 2px solid #1a73e8;
     }
 
     &:focus,
     &:valid {
       outline: none;
       background-color: $sectionColor;
-      border: 1px solid #1a73e8;
+      border: 2px solid #1a73e8;
     }
   }
 
@@ -68,6 +68,7 @@ $blockRadius: 16px;
     transform: translateY(-50%) scale(0.8);
     background-color: $sectionColor;
     padding: 0 0.2em;
+    left: 6px;
     color: #2196f3;
     opacity: 1;
   }
@@ -78,4 +79,10 @@ $blockRadius: 16px;
   font-weight: 500;
   color: $middleText;
   margin-bottom: 20px;
+}
+
+.passwordEye {
+  position: absolute;
+  bottom: 50%;
+  right: 25px;
 }
