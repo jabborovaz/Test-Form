@@ -42,7 +42,7 @@ const Main: React.FC = () => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       setValueOnText(e.target.value);
-    }, 400);
+    }, 500);
   }
 
   function syncHandleChange(e: any) {
