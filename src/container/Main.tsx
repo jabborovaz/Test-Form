@@ -65,8 +65,10 @@ const Main: React.FC = () => {
           value={value}
           handleChange={asyncHandleChange}
           handleBlur={() => {}}
-          inputStyle={styles.input}
-          labelStyle={styles.userLabel}
+          inputStyle={value.length > 0 ? styles.inputWithValue : styles.input}
+          labelStyle={
+            value.length > 0 ? styles.labelOnInputWithValue : styles.userLabel
+          }
           type="text"
         />
         <InputBox
@@ -78,8 +80,10 @@ const Main: React.FC = () => {
           value={value2}
           handleChange={syncHandleChange}
           handleBlur={() => {}}
-          inputStyle={styles.input}
-          labelStyle={styles.userLabel}
+          inputStyle={value2.length > 0 ? styles.inputWithValue : styles.input}
+          labelStyle={
+            value2.length > 0 ? styles.labelOnInputWithValue : styles.userLabel
+          }
           type="text"
         />
         <p className={styles.middleText}>Debounce: {valueOnText}</p>
@@ -100,11 +104,21 @@ const Main: React.FC = () => {
           handleChange={handleChange}
           handleBlur={handleBlur}
           inputStyle={
-            errors?.email && touched?.email ? styles.inputInvalid : styles.input
+            errors?.email && touched?.email
+              ? values.email.length > 0
+                ? styles.inputWithValueInvalid
+                : styles.inputInvalid
+              : values.email.length > 0
+              ? styles.inputWithValue
+              : styles.input
           }
           labelStyle={
             errors?.email && touched?.email
-              ? styles.userLabelInvalid
+              ? values.email.length > 0
+                ? styles.labelOnInputWithValueInvalid
+                : styles.userLabelInvalid
+              : values.email.length > 0
+              ? styles.labelOnInputWithValue
               : styles.userLabel
           }
         />
@@ -125,12 +139,20 @@ const Main: React.FC = () => {
           handleBlur={handleBlur}
           inputStyle={
             errors?.description && touched?.description
-              ? styles.inputInvalid
+              ? values.description.length > 0
+                ? styles.inputWithValueInvalid
+                : styles.inputInvalid
+              : values.description.length > 0
+              ? styles.inputWithValue
               : styles.input
           }
           labelStyle={
             errors?.description && touched?.description
-              ? styles.userLabelInvalid
+              ? values.description.length > 0
+                ? styles.labelOnInputWithValueInvalid
+                : styles.userLabelInvalid
+              : values.description.length > 0
+              ? styles.labelOnInputWithValue
               : styles.userLabel
           }
         />
@@ -149,12 +171,20 @@ const Main: React.FC = () => {
           handleBlur={handleBlur}
           inputStyle={
             errors?.password && touched?.password
-              ? styles.inputInvalid
+              ? values.password.length > 0
+                ? styles.inputWithValueInvalid
+                : styles.inputInvalid
+              : values.password.length > 0
+              ? styles.inputWithValue
               : styles.input
           }
           labelStyle={
             errors?.password && touched?.password
-              ? styles.userLabelInvalid
+              ? values.password.length > 0
+                ? styles.labelOnInputWithValueInvalid
+                : styles.userLabelInvalid
+              : values.password.length > 0
+              ? styles.labelOnInputWithValue
               : styles.userLabel
           }
         />
@@ -175,12 +205,20 @@ const Main: React.FC = () => {
           handleBlur={handleBlur}
           inputStyle={
             errors?.confirmPass && touched?.confirmPass
-              ? styles.inputInvalid
+              ? values.confirmPass.length > 0
+                ? styles.inputWithValueInvalid
+                : styles.inputInvalid
+              : values.confirmPass.length > 0
+              ? styles.inputWithValue
               : styles.input
           }
           labelStyle={
             errors?.confirmPass && touched?.confirmPass
-              ? styles.userLabelInvalid
+              ? values.confirmPass.length > 0
+                ? styles.labelOnInputWithValueInvalid
+                : styles.userLabelInvalid
+              : values.confirmPass.length > 0
+              ? styles.labelOnInputWithValue
               : styles.userLabel
           }
         />
